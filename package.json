@@ -1,0 +1,26 @@
+{
+  "name": "word-cloud",
+  "version": "1.0.0",
+  "description": "Generates a word cloud using Python, HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byrdsean/word-cloud.git"
+  },
+  "keywords": [
+    "word",
+    "cloud",
+    "python",
+    "html",
+    "css"
+  ],
+  "author": "Sean C Byrd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byrdsean/word-cloud/issues"
+  },
+  "homepage": "https://github.com/byrdsean/word-cloud#readme"
+}
