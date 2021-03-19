@@ -2,7 +2,7 @@
   "name": "word-cloud",
   "version": "1.0.0",
   "description": "Generates a word cloud using Python, HTML and CSS.",
-  "main": "index.js",
+  "main": "main.py",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/byrdsean/word-cloud/issues"
   },
-  "homepage": "https://github.com/byrdsean/word-cloud#readme"
+  "homepage": "https://github.com/byrdsean/word-cloud#readme",
+  "assests" : {
+    "source": "./assests/DeclarationOfIndependence.txt"
+  }
 }
