@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/byrdsean/word-cloud#readme",
   "assests" : {
-    "Source": "./assests/DeclarationOfIndependence.txt"
+    "source": "./assests/DeclarationOfIndependence.txt"
   }
 }
