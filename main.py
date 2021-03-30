@@ -48,7 +48,7 @@ if(__name__ == '__main__'):
         CountData = WordCountGenerator.ProcessWordCount()
 
         # Build the word cloud based on the counts
-        # ConstructCloud = CloudBuilder(CountData)
-        # ConstructCloud.BuildCloud()
+        ConstructCloud = CloudBuilder(CountData)
+        ConstructCloud.BuildCloud()
     else:
         raise Exception('"{Source}" does not exist. Please enter a valid file location'.format(Source = Source))
