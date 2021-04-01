@@ -5,6 +5,7 @@ import sys
 from models.UserInput import UserInput
 from codebase.WordCount import WordCount
 from codebase.CloudBuilder import CloudBuilder
+from codebase.FileBuilder import FileBuilder
 
 # Get source location from package.json
 def _GetSourceLocationFromConfig():
@@ -50,5 +51,12 @@ if(__name__ == '__main__'):
         # Build the word cloud based on the counts
         ConstructCloud = CloudBuilder(CountData)
         ConstructCloud.BuildCloud()
+
+        # Build the word cloud file to display to the user
+        if(ConstructCloud.DoesCloudDataExist()):
+            ConstructFile = FileBuilder()
+            ConstructFile.BuildWordCloudFile(ConstructCloud.GetCloudModel())
+        else:
+            print('No words processed. Word cloud was not created.')
     else:
         raise Exception('"{Source}" does not exist. Please enter a valid file location'.format(Source = Source))
