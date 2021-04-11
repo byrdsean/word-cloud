@@ -162,5 +162,6 @@ Thumbs.db #thumbnail cache on Windows
 
 # node modules
 /node_modules
+package-lock.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
