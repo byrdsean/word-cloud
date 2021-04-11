@@ -7,7 +7,7 @@ class WordCount:
 
     # Variables
     _Counts = {}
-    _MaxWordsInCloud = 30
+    _MaxWordsInCloud = 100
     _CaseInsensitive = True
     _StopWordObj = None         # Object to parse stop words
     _NonAlpha = None            # Regular expression to find non-alphanumeric characters

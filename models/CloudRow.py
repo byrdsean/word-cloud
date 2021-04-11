@@ -20,7 +20,8 @@ class CloudRow:
         _LessImportance = self._MaxImportance - Importance
 
         #Insert the data either at the beginning or end of the array
-        _WordData = (Word, _LessImportance)
+        # _WordData = (Word, _LessImportance)
+        _WordData = (Word, Importance)
         if(self._InsertBefore):
             self._RowItems.insert(0, _WordData)
         else:

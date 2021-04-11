@@ -1,3 +1,4 @@
+import random
 from models.CloudRow import CloudRow
 
 class CloudBuilder:
@@ -13,9 +14,11 @@ class CloudBuilder:
         self._CloudData = CloudData
         self._ModelCloud = []
 
-    # Build the data structure for the word cloud
     def BuildCloud(self):
         if(self._CloudData != None and 0 < len(self._CloudData["SortedTerms"])):
+            #Randomly sort the array, then insert the data
+            random.shuffle(self._CloudData["SortedTerms"])
+
             _CurrentIndex = 0
             _InsertBefore = True
             for x in self._CloudData["SortedTerms"]:
