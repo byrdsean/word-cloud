@@ -1,0 +1,58 @@
+body {
+  background-color: #000000;
+}
+
+.wordRow {
+  text-align: center;
+}
+.wordRow .word {
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 10px;
+}
+.wordRow .step-10 {
+  font-size: 80px;
+  color: #D6DBDF;
+}
+.wordRow .step-9 {
+  font-size: 70px;
+  color: #616A6B;
+}
+.wordRow .step-8 {
+  font-size: 60px;
+  color: #9E9E9E;
+}
+.wordRow .step-7 {
+  font-size: 50px;
+  color: #FFFFFF;
+}
+.wordRow .step-6 {
+  font-size: 40px;
+  color: #FFEB3B;
+}
+.wordRow .step-5 {
+  font-size: 30px;
+  color: #FF6F00;
+}
+.wordRow .step-4 {
+  font-size: 25px;
+  color: #388E3C;
+}
+.wordRow .step-3 {
+  font-size: 20px;
+  color: #1976D2;
+}
+.wordRow .step-2 {
+  font-size: 15px;
+  color: #7B1FA2;
+}
+.wordRow .step-1 {
+  font-size: 10px;
+  color: #5D4037;
+}
+.wordRow .step-0 {
+  font-size: 5px;
+  color: #E74C3C;
+}
+
+/*# sourceMappingURL=cloud.css.map */

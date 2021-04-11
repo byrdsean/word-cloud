@@ -1,0 +1,93 @@
+$red: #E74C3C;
+$brown: #5D4037;
+$purple: #7B1FA2;
+$blue: #1976D2;
+$green: #388E3C;
+$orange: #FF6F00;
+$yellow: #FFEB3B;
+$white: #FFFFFF;
+$gray: #9E9E9E;
+$darkgray:#616A6B;
+$lightgray: #D6DBDF;
+
+body
+{
+    background-color: #000000;
+}
+
+.wordRow{
+    text-align: center;
+
+    .word
+    {
+        color: #ffffff;
+        display:inline-block;
+        margin:0 10px;
+    }
+
+    .step-10
+    {
+    font-size: 80px;
+    color: $lightgray;
+    }
+
+    .step-9
+    {
+    font-size: 70px;
+    color: $darkgray;
+    }
+
+    .step-8
+    {
+    font-size: 60px;
+    color: $gray;
+    }
+
+    .step-7
+    {
+    font-size: 50px;
+    color: $white;
+    }
+
+    .step-6
+    {
+    font-size: 40px;
+    color: $yellow;
+    }
+
+    .step-5
+    {
+    font-size: 30px;
+    color: $orange;
+    }
+
+    .step-4
+    {
+    font-size: 25px;
+    color: $green;
+    }
+
+    .step-3
+    {
+    font-size: 20px;
+    color: $blue;
+    }
+
+    .step-2
+    {
+    font-size: 15px;
+    color: $purple;
+    }
+
+    .step-1
+    {
+    font-size: 10px;
+    color: $brown;
+    }
+
+    .step-0
+    {
+    font-size: 5px;
+    color: $red;
+    }
+}
