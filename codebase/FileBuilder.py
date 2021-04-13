@@ -3,28 +3,8 @@ import os.path
 
 class FileBuilder:
 
-    # Location of the base html
-    _BaseHtmlLocation = None
-    _BaseCssLocation = None
-
-    def __init__(self):
-        self.SetBaseHtmlLocation()
-
-    def SetBaseHtmlLocation(self):
-        with open('package.json') as f:
-            ConfigData = json.load(f)
-
-            #Read in the html location
-            if ('html' in ConfigData.keys()):
-                self._BaseHtmlLocation = ConfigData["html"]
-            else:
-                raise Exception('No base html file was specified. Unable to build cloud.')
-            
-            #Read in the Css location
-            if ('css' in ConfigData.keys()):
-                self._BaseCssLocation = ConfigData["css"]
-            else:
-                raise Exception('No base css file was specified. Unable to build cloud.')
+    def __init__(self, Inputs):
+        self._Inputs = Inputs
 
     # Build the file to display the word cloud to the user
     def BuildWordCloudFile(self, _CloudData):
@@ -42,7 +22,7 @@ class FileBuilder:
 
         # Read in the html contents
         _FinalWordCloud = ''
-        with open(self._BaseHtmlLocation) as f:
+        with open(self._Inputs.HtmlTemplate) as f:
             _html = ''
             eof = False
             while(eof == False):
@@ -56,13 +36,13 @@ class FileBuilder:
         _html = _html.replace('<!--CloudInsertion-->', _CloudStr)
         
         # Save the html to a file. Set the code to overwrite any existing data
-        _DestinationFile = 'C:\\Users\\Sean\\Desktop\\output\\wordcloud.html'
+        _DestinationFile = self._Inputs.OutputLocation + '\\wordcloud.html'
         _WriteMode = 'w' if os.path.exists(_DestinationFile) else 'x'
         with open(_DestinationFile, _WriteMode) as d:
             d.write(_html)
 
         # Read in the contents of the css file
-        with open(self._BaseCssLocation) as f:
+        with open(self._Inputs.CssLocation) as f:
             _css = ''
             eof = False
             while(eof == False):
@@ -73,7 +53,7 @@ class FileBuilder:
                     eof = True
 
         # Save the css to a file.
-        _DestinationFileCss = 'C:\\Users\\Sean\\Desktop\\output\\cloud.css'
+        _DestinationFileCss = self._Inputs.OutputLocation + '\\cloud.css'
         _WriteMode = 'w' if os.path.exists(_DestinationFileCss) else 'x'
         with open(_DestinationFileCss, _WriteMode) as d:
             d.write(_css)

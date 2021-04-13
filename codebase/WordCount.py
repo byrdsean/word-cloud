@@ -7,7 +7,6 @@ class WordCount:
 
     # Variables
     _Counts = {}
-    _MaxWordsInCloud = 100
     _CaseInsensitive = True
     _StopWordObj = None         # Object to parse stop words
     _NonAlpha = None            # Regular expression to find non-alphanumeric characters
@@ -16,7 +15,7 @@ class WordCount:
     def __init__(self, Inputs):
         #Set the vars
         self._Inputs = Inputs
-        self._StopWordObj = StopWords(LimitOnLength = False)
+        self._StopWordObj = StopWords(Inputs, LimitOnLength = False)
         self._NonAlpha = re.compile('[^a-z0-9]', flags = re.IGNORECASE)
 
         if(self._Inputs == None or self._Inputs.SourceLocation is None or not os.path.exists(self._Inputs.SourceLocation)):
@@ -45,8 +44,8 @@ class WordCount:
         SortedTerms = sorted( self._Counts.items(), key = lambda kv: (-kv[1][1], kv[0]) )
 
         # Take the max number of words for the cloud, if any
-        if(self._MaxWordsInCloud != None):
-            SortedTerms = SortedTerms[0:self._MaxWordsInCloud]
+        if(self._Inputs.MaxWordsInCloud != None):
+            SortedTerms = SortedTerms[0:self._Inputs.MaxWordsInCloud]
         
         # Set the cloud classes
         CloudClass = self._MaxClassCount
