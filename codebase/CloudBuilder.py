@@ -16,7 +16,7 @@ class CloudBuilder:
 
     def BuildCloud(self):
         if(self._CloudData != None and 0 < len(self._CloudData["SortedTerms"])):
-            #Randomly sort the array, then insert the data
+            # #Randomly sort the array, then insert the data
             random.shuffle(self._CloudData["SortedTerms"])
 
             _CurrentIndex = 0
@@ -28,8 +28,9 @@ class CloudBuilder:
                 #2. Insert the a word into the current array
                 #3. Loop to the next word
 
+                #Get the next word to insert
                 _NextWord = x[1][0]
-                _Importance = x[1][1]
+                _Importance = x[1][2]
 
                 #1. Check if the code is at the end of ModelCloud. 
                 #   If so, insert a new array either at the beginning or end

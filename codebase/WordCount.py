@@ -11,6 +11,7 @@ class WordCount:
     _CaseInsensitive = True
     _StopWordObj = None         # Object to parse stop words
     _NonAlpha = None            # Regular expression to find non-alphanumeric characters
+    _MaxClassCount = 10         # Maximum count used as a class in the cloud
 
     def __init__(self, Inputs):
         #Set the vars
@@ -47,6 +48,23 @@ class WordCount:
         if(self._MaxWordsInCloud != None):
             SortedTerms = SortedTerms[0:self._MaxWordsInCloud]
         
+        # Set the cloud classes
+        CloudClass = self._MaxClassCount
+        Previous = None
+        for x in SortedTerms:
+            if(Previous == None):
+                Previous = x[1][1]
+
+            # If the current importance is less that the previous, decrement the class
+            if(x[1][1] < Previous):
+                Previous = x[1][1]
+                CloudClass = CloudClass - 1
+                if(CloudClass < 0):
+                    CloudClass = 0
+            
+            # Set the class
+            x[1][2] = CloudClass
+
         # Store the data into an object to return
         CountData = {
             "TotalWords" : Total,
@@ -72,7 +90,7 @@ class WordCount:
 
                 # Attempt to: check if 'x' is a key in the dictionary, and return the value
                 # If there is no value, return a default
-                toUpdate = self._Counts.get(key, [x, 0])
+                toUpdate = self._Counts.get(key, [x, 0, 0])
                 toUpdate[1] += 1
                 self._Counts[key] = toUpdate
                 MaxCount = max(MaxCount, toUpdate[1])
