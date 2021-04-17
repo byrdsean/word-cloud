@@ -28,13 +28,17 @@ class ReadInputs:
             if('assests' in ConfigData.keys()):
                 AssestsDict = ConfigData["assests"]
 
-                #Set the variables
-                self._Inputs.SourceLocation = AssestsDict[self._source] if self._source in AssestsDict.keys() else None
-                self._Inputs.HtmlTemplate = AssestsDict[self._html] if self._html in AssestsDict.keys() else None
-                self._Inputs.CssLocation = AssestsDict[self._css] if self._css in AssestsDict.keys() else None
-                self._Inputs.OutputLocation = AssestsDict[self._outputLocation] if self._outputLocation in AssestsDict.keys() else None
-                self._Inputs.Stopwords = AssestsDict[self._stopwords] if self._stopwords in AssestsDict.keys() else None
-                self._Inputs.MaxWordsInCloud = AssestsDict[self._maxWordsInCloud] if self._maxWordsInCloud in AssestsDict.keys() else None
-                self._Inputs.MaxStopwordLength = AssestsDict[self._maxStopwordLen] if self._maxStopwordLen in AssestsDict.keys() else None
+                # #Set the variables
+                self._Inputs.SourceLocation = self.GetDictData(AssestsDict, self._source)
+                self._Inputs.HtmlTemplate = self.GetDictData(AssestsDict, self._html)
+                self._Inputs.CssLocation = self.GetDictData(AssestsDict, self._css)
+                self._Inputs.OutputLocation = self.GetDictData(AssestsDict, self._outputLocation)
+                self._Inputs.Stopwords = self.GetDictData(AssestsDict, self._stopwords)
+                self._Inputs.MaxWordsInCloud = self.GetDictData(AssestsDict, self._maxWordsInCloud)
+                self._Inputs.MaxStopwordLength = self.GetDictData(AssestsDict, self._maxStopwordLen)
 
         return self._Inputs
+
+    # Get dictionary data
+    def GetDictData(self, AssestsDict, key):
+        return AssestsDict[key] if key in AssestsDict.keys() else None
